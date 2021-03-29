@@ -35,4 +35,5 @@ jobs:
     - name: Test with pytest
       run: |
         # pip install pytest
-        pytest tests\test_integration.py
+        cd tests
+        pytest test_integration.py
