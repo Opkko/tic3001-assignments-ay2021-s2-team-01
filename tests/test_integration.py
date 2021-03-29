@@ -6,7 +6,7 @@ import time
 import sys
 import os
 
-dirPath = os.path.dirname(os.path.realpath(_file_))
+dirPath = os.path.dirname(os.path.realpath(__file__))
 outputPath = os.path.join(dirPath, "Output1.txt")
 
 class TestCase1(unittest.TestCase):
