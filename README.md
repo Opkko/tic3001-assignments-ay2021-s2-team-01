@@ -54,8 +54,12 @@ For this design it consists of 4 components – Input, CircularShift, AlphabetSo
 
 These actions are illustrated in the sequence diagram and class diagram as shown in the figure below.
 
+![sequence](Images/sequence dia.png)
 
 
+The direct association (depicted as arrows) acts as a pipe to facilitate communication between modules.
+
+![class](Images/Pipe and Filter class diagram.png)
 
 
 ## Applying Design Principles
@@ -86,25 +90,35 @@ Therefore, by applying these principles to our code, we have effectively:
  much nicer to work with when updates are needed.
 
 
+## CI ##
 
+These are the following reasons why we chose GitHub Actions as our continuous integration tool:
+ 1. It is relatively easy to use and there’s sufficient resources online to help us to fix errors.
+ 2. GitHub Actions's Features:
+ - Multiple workflow files support
+ - Free and open source
+ - Workflow run interface
+ - Search for actions in GitHub Marketplace
+ - Integrated with Github's Checks API
+ - Logs and artifacts downloading support
 
-These actions are illustrated in the sequence diagram as shown in the figure below.
-![uml](https://user-images.githubusercontent.com/44596988/109453288-a2300c00-7a8c-11eb-8053-e7fdf21c0ad6.png)
+**Challenges Faced**
+ - Trouble with linting using flake8.
 
+**Helpful Features**
+ - Automated testing and building
+ - Automated checking for Syntax errors
 
-**The Pipe and Filter** is an architectural design pattern that allows for stream/asynchronous processing. It connects several components, which are referred to as filters that process a stream of data, each connected to the next component in the processing pipeline via a pipe.
+We have created the test cases based on the test cases that were provided in Assignment 1 and 2. The test cases were based on whether the generated output was correct or wrong.
+These are the following screenshots of the CI console output (Failed/Passed/Build history):
 
-For this design it consists of 4 components – Input, CircularShift, AlphabetSort, Output.
+**Failed:**
 
- - **Input** read all the lines from **Input Medium** which is a text file that user input the data.
- - **Input** calls its function – _getlines()_ to get all the lines from the text file and pass the data to **CircularShift** to perform the circular shift.
- - After all the lines has been circular shifted, **CircularShift** calls and pass the data  to **AlphabetSort** to perform alphabetical sort.
- - After all the lines has been alphabetical sorted, **AlphabetSort** calls and pass  the data to **Output** to  write it in a text file.
+![failed](Images/failbuild.png)
 
+**Passed**
 
-These actions are illustrated in the sequence diagram as shown in the figure below.
-
-![sequence](https://user-images.githubusercontent.com/44596988/109453309-aeb46480-7a8c-11eb-9026-d50abd773f95.png)
+![passed](Images/passbuild.png)
 
 
 ## How to use
@@ -122,6 +136,10 @@ edit codes and push back to repo
 $ git add .
 $ git commit -m "Key in Message"
 $ git push origin main
+
+Under github,
+1. go to actions
+2. GitHubActions which is our CI tool will automatically build & test the code when it is newly pushed
 
 ```
 ## Excecuting test output example
