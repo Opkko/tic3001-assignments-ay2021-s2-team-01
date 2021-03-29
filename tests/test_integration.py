@@ -63,5 +63,5 @@ class TestCase6(unittest.TestCase):
         self.input = Input(filePath, ignoredWordsFilePath, requiredWordsFilePath)
         self.assertTrue(filecmp.cmp(outputPath, outputTestPath, shallow=False))
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     unittest.main()
