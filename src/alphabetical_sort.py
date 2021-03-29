@@ -11,3 +11,4 @@ class AlphabetSort:
 
     def __calloutput(self):
         Output(self.__shifted)
+        
